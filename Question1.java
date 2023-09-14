@@ -111,6 +111,5 @@ public class Main {
         
 
         System.out.println("\nUpdated Faculty Info:" + fa.getInfo());
-        
-    }
+    }
 }
