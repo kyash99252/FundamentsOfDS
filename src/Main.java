@@ -136,5 +136,7 @@ public class Main
 {
 	public static void main(String[] args) {
 		MyLongArray array = new MyLongArray(5);
+        array.insert();
+        array.display();
 	}
 }

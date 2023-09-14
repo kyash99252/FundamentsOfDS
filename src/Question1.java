@@ -85,7 +85,7 @@ class Faculty extends Human {
     }
 }
 
-public class Main {
+public class Question1 {
     public static void main(String[] args) {
         Student st = new Student("Yash", 19, "Male", 19, "IT", 3, 8);
         Faculty fa = new Faculty("Dr. M. Shirole", 45, "Male", 60000.0, "Information Technology");
