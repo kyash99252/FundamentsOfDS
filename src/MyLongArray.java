@@ -1,29 +1,42 @@
 import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 
-// Define a class named MyLongArray for managing a long array.
+/**
+ * The MyLongArray class represents an array of long values with various operations.
+ */
 class MyLongArray {
-    private long[] a; // Array to store long values
-    private int currentIndex; // Index to keep track of the current number of elements in the array
+    private final long[] a; // The array to store long values
+    private int currentIndex; // The current index for array operations
 
-    // Constructor to initialize the array with a given size.
+    /**
+     * Constructs a MyLongArray object with a specified size.
+     *
+     * @param size The size of the array.
+     */
     public MyLongArray(int size) {
         a = new long[size];
-        currentIndex = 0; // Initialize the current index to 0.
+        currentIndex = 0;
     }
 
-    // Method to find an element in the array and return its index.
+    /**
+     * Finds the index of a specified value in the array.
+     *
+     * @param searchKey The value to search for.
+     * @return The index of the value if found, or -1 if not found.
+     */
     public int find(long searchKey) {
-        for(int i = 0; i < currentIndex; i++) {
+        for (int i = 0; i < currentIndex; i++) {
             if (a[i] == searchKey) {
-                return i; // Return the index of the element if found.
+                return i;
             }
         }
-        return -1; // Return -1 if the element is not found in the array.
+        return -1;
     }
 
-    // Method to insert random values into the array.
+    /**
+     * Inserts random values into the array if it's not full.
+     * If the array is full, it prints an error message.
+     */
     public void insert() {
         Random rand = new Random();
         if (currentIndex < a.length) {
@@ -31,24 +44,32 @@ class MyLongArray {
                 a[i] = rand.nextInt(1000);
                 currentIndex++;
             }
-        }
-        else {
+        } else {
             System.out.println("Error: Array is Full");
         }
     }
 
-    // Method to retrieve an element at a given index.
+    /**
+     * Retrieves an element from the array at a specified index.
+     *
+     * @param index The index of the element to retrieve.
+     * @return The element at the specified index.
+     */
     public long getElem(int index) {
         return a[index];
     }
 
-    // Method to delete a specified value from the array.
+    /**
+     * Deletes the first occurrence of a specified value from the array.
+     *
+     * @param value The value to delete.
+     * @return True if the value was found and deleted, false if not found.
+     */
     public boolean delete(long value) {
         int index = find(value);
         if (index == -1) {
             return false; // Element not found, return false.
-        }
-        else {
+        } else {
             for (int i = index; i < currentIndex; i++) {
                 a[i] = a[i + 1];
                 currentIndex--;
@@ -56,15 +77,22 @@ class MyLongArray {
             }
         }
         a[a.length - 1] = 0;
-        return false;
+        return true; // Element successfully deleted, return true.
     }
 
-    // Method to display the contents of the array.
+    /**
+     * Displays the contents of the array.
+     */
     public void display() {
         System.out.println(Arrays.toString(a));
     }
 
-    // Method to insert a value at a specified index.
+    /**
+     * Inserts a value at a specified index in the array.
+     *
+     * @param index The index where the value should be inserted.
+     * @param value The value to insert.
+     */
     public void insert(int index, long value) {
         long temp = a[index];
         a[index] = value;
@@ -75,7 +103,12 @@ class MyLongArray {
         }
     }
 
-    // Method to delete an element at a specified index.
+    /**
+     * Deletes the element at a specified index in the array.
+     *
+     * @param index The index of the element to delete.
+     * @return True if the element was successfully deleted, false if the index is out of bounds.
+     */
     public boolean deleteAt(int index) {
         if (index < a.length) {
             for (int i = index; i < currentIndex; i++) {
@@ -88,7 +121,10 @@ class MyLongArray {
         return false; // Index out of bounds, return false.
     }
 
-    // Method to perform bubble sort on the array to sort it in ascending order.
+    /**
+     * Sorts the array in ascending order using the Bubble Sort algorithm.
+     * This is an inefficient sorting algorithm with a time complexity of O(n^2).
+     */
     public void bubbleSort() {
         long n = a.length;
         long temp;
@@ -108,7 +144,10 @@ class MyLongArray {
         }
     }
 
-    // Method to perform insertion sort on the array to sort it in ascending order.
+    /**
+     * Sorts the array in ascending order using the Insertion Sort algorithm.
+     * This algorithm has an average time complexity of O(n^2).
+     */
     public void insertionSort() {
         long n = a.length;
         for (int i = 1; i < n; ++i) {
@@ -122,7 +161,10 @@ class MyLongArray {
         }
     }
 
-    // Method to perform selection sort on the array to sort it in ascending order.
+    /**
+     * Sorts the array in ascending order using the Selection Sort algorithm.
+     * This algorithm has an average time complexity of O(n^2).
+     */
     public void selectionSort() {
         long n = a.length;
         int index;

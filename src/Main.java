@@ -1,7 +1,14 @@
-import java.util.*;
-// Main class for user interaction and testing.
+import java.util.Scanner;
+/**
+ * The Main class contains the main method to run the program and interact with the user.
+ */
 public class Main
 {
+    /**
+     * The main method where the program starts execution.
+     *
+     * @param args The command-line arguments (not used in this program).
+     */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the size of Array: ");
