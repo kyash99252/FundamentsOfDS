@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Random;
 
 public class GenericQueue_TestApplication {
     public static void main(String[] args) {
