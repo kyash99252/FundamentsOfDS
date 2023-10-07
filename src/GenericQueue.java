@@ -11,8 +11,13 @@ public class GenericQueue<E> {
 
     public void enqueue(E item) {
         rear++;
-        if (isFull()) throw new IndexOutOfBoundsException("Error: Queue is full");
-        elements[rear] = item;
+//        if (isFull()) throw new IndexOutOfBoundsException("Error: Queue is full");
+        if (front != rear % elements.length || rear == 0) {
+            elements[rear % elements.length] = item;
+        }
+        else {
+            throw new IndexOutOfBoundsException("Error: Queue is full");
+        }
     }
 
     public E dequeue() {
@@ -30,6 +35,22 @@ public class GenericQueue<E> {
     }
 
     public boolean isFull() {
-        return front == 0 && rear == elements.length - 1;
+        return size() >= elements.length;
+    }
+
+    public int size() {
+        if (front == (rear % elements.length) + 1) {
+            return 0;
+        }
+        else if (rear < elements.length && front == 0) {
+            return rear + 1;
+        }
+        else {
+            int temp = front - (rear % elements.length);
+            if (temp <= 0) {
+                return Math.abs(temp - 1);
+            }
+            return elements.length + 1 - temp;
+        }
     }
 }
