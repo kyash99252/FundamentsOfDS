@@ -1,3 +1,13 @@
+/**
+ * The `GenericQueue_TestApplication` class is an implementation of the `GenericQueue` class.
+ * It provides a menu-driven interface to test the functionality of the `GenericQueue` class.
+ *
+ * This implementation uses a `Scanner` object to read user input. The user can choose from a list of
+ * operations to perform on the queue, including enqueuing and dequeuing elements, peeking at the front element,
+ * checking if the queue is empty or full, and checking the current size of the queue.
+ *
+ * @see GenericQueue
+ */
 import java.util.Scanner;
 
 public class GenericQueue_TestApplication {
@@ -54,16 +64,7 @@ public class GenericQueue_TestApplication {
 
                 case 6:
                     System.out.println("The Current Size of Queue is " + queue.size());
-
-                case 0:
-                    System.out.println("Exited program successfully");
-                    break;
-
-                default:
-                    throw new IllegalArgumentException("Invalid Option");
             }
-            System.out.println();
-            System.out.println();
         } while (select != 0);
     }
 }
