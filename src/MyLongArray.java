@@ -70,11 +70,10 @@ class MyLongArray {
         if (index == -1) {
             return false; // Element not found, return false.
         } else {
-            for (int i = index; i < currentIndex; i++) {
+            for (int i = index; i < currentIndex - 1; i++) {
                 a[i] = a[i + 1];
-                currentIndex--;
-                a[currentIndex] = 0;
             }
+            currentIndex--;
         }
         a[a.length - 1] = 0;
         return true; // Element successfully deleted, return true.

@@ -31,4 +31,6 @@ public class GenericStack<E> {
     public boolean isFull() {
         return top == elements.length - 1;
     }
+
+    public int size() {return top + 1; }
 }
