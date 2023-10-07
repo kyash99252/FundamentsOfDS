@@ -1,3 +1,13 @@
+/**
+ * The `GenericStack_Implementation` class is an implementation of the `GenericStack` class.
+ * It uses a stack to parse HTML code and check if it is properly nested.
+ *
+ * This implementation uses a `GenericStack` to store tags. When an opening tag is encountered,
+ * it is pushed onto the stack. When a closing tag is encountered, the corresponding opening tag
+ * is popped from the stack. If the tags do not match, an error message is printed.
+ *
+ * @see GenericStack
+ */
 import java.util.*;
 
 public class GenericStack_Implementation {

@@ -1,3 +1,13 @@
+/**
+ * The `GenericStack_TestApplication` class is an implementation of the `GenericStack` class.
+ * It provides a menu-driven interface to test the functionality of the `GenericStack` class.
+ *
+ * This implementation uses a `Scanner` object to read user input. The user can choose from a list of
+ * operations to perform on the stack, including pushing and popping elements, peeking at the top element,
+ * checking if the stack is empty or full, and checking the current size of the stack.
+ *
+ * @see GenericStack
+ */
 import java.util.*;
 public class GenericStack_TestApplication {
     public static void main(String[] args) {
@@ -53,16 +63,7 @@ public class GenericStack_TestApplication {
 
                 case 6:
                     System.out.println("The current size of stack is " + stack.size());
-
-                case 0:
-                    System.out.println("Exited program successfully");
-                    break;
-
-                default:
-                    throw new IllegalArgumentException("Invalid Option");
             }
-            System.out.println();
-            System.out.println();
         } while (select != 0);
     }
 }
