@@ -14,6 +14,8 @@ public class GenericQueue<E> {
     private int front;
     private int rear;
 
+    private int size;
+
     /**
      * Initializes an empty queue with a specified capacity.
      *
@@ -23,6 +25,7 @@ public class GenericQueue<E> {
         elements = (E[]) new Object[capacity];
         front = 0;
         rear = -1;
+        size = 0;
     }
 
     /**
@@ -33,6 +36,7 @@ public class GenericQueue<E> {
      */
     public void enqueue(E item) {
         rear++;
+        size++;
         if (front != rear % elements.length || rear == 0) {
             elements[rear % elements.length] = item;
         }
@@ -49,6 +53,7 @@ public class GenericQueue<E> {
     public E dequeue() {
         if (isEmpty()) System.out.println("Queue is Empty");
         front++;
+        size--;
         return elements[front - 1];
     }
 
@@ -67,7 +72,7 @@ public class GenericQueue<E> {
      * @return `true` if this queue contains no elements; `false` otherwise
      */
     public boolean isEmpty() {
-        return front == 0 && rear == -1;
+        return size == 0;
     }
 
     /**
@@ -76,7 +81,7 @@ public class GenericQueue<E> {
      * @return `true` if this queue is full; `false` otherwise
      */
     public boolean isFull() {
-        return size() >= elements.length;
+        return size >= elements.length;
     }
 
     /**
@@ -85,18 +90,6 @@ public class GenericQueue<E> {
      * @return the number of elements in this queue
      */
     public int size() {
-        if (front == (rear % elements.length) + 1) {
-            return 0;
-        }
-        else if (rear < elements.length && front == 0) {
-            return rear + 1;
-        }
-        else {
-            int temp = front - (rear % elements.length);
-            if (temp <= 0) {
-                return Math.abs(temp - 1);
-            }
-            return elements.length + 1 - temp;
-        }
+        return size;
     }
 }
