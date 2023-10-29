@@ -1,3 +1,4 @@
+
 /**
  * The `GenericQueue_TestApplication` class is an implementation of the `GenericQueue` class.
  * It provides a menu-driven interface to test the functionality of the `GenericQueue` class.
@@ -18,16 +19,8 @@ public class GenericQueue_TestApplication {
         GenericQueue<Integer> queue = new GenericQueue<>(capacity);
         int select;
         do {
-            System.out.print("""
-                Menu:
-                1. Enqueue Element
-                2. Dequeue Element
-                3. Peek Element
-                4. Check if Empty
-                5. Check if Full
-                6. Size of Queue
-                0. Exit Program
-                Enter Sr. No. of Operation :""");
+            System.out.print("Menu:\n" + "1. Enqueue Element\n" + "2. Dequeue Element\n" + "3. Peek Element\n"
+                    + "4. Check if Empty\n" + "5. Check if Full\n" + "6. Size of Queue\n" + "Enter Sr. No. of Operation: ");
             select = sc.nextInt();
             switch (select) {
                 case 1:
@@ -47,8 +40,7 @@ public class GenericQueue_TestApplication {
                 case 4:
                     if (queue.isEmpty()) {
                         System.out.println("The Queue is Empty");
-                    }
-                    else {
+                    } else {
                         System.out.println("The Queue is not Empty");
                     }
                     break;
@@ -56,15 +48,18 @@ public class GenericQueue_TestApplication {
                 case 5:
                     if (queue.isFull()) {
                         System.out.println("The Queue is Full");
-                    }
-                    else {
+                    } else {
                         System.out.println("The Queue is not Full");
                     }
                     break;
 
                 case 6:
                     System.out.println("The Current Size of Queue is " + queue.size());
+                    break;
+                default:
+                    System.out.println("Invalid Operator");
             }
         } while (select != 0);
+        sc.close();
     }
 }

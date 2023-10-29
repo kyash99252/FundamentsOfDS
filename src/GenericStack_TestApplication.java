@@ -1,3 +1,4 @@
+
 /**
  * The `GenericStack_TestApplication` class is an implementation of the `GenericStack` class.
  * It provides a menu-driven interface to test the functionality of the `GenericStack` class.
@@ -9,6 +10,7 @@
  * @see GenericStack
  */
 import java.util.*;
+
 public class GenericStack_TestApplication {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -17,16 +19,8 @@ public class GenericStack_TestApplication {
         GenericStack<Integer> stack = new GenericStack<>(capacity);
         int select;
         do {
-            System.out.print("""
-                Menu:
-                1. Push Element
-                2. Pop Element
-                3. Peek Element
-                4. Check if Empty
-                5. Check if Full
-                6. Check Current Size of Stack
-                0. Exit Program
-                Enter Sr. No. of Operation :""");
+            System.out.print("Menu:\n" + "1. Push Element\n" + "2. Pop Element\n" + "3. Peek Element\n"
+                    + "4. Check if Empty\n" + "5. Check if Full\n" + "6. Check Current Size of Stack\n" + "Enter Sr. No. of Operation :\n");
             select = sc.nextInt();
             switch (select) {
                 case 1:
@@ -46,8 +40,7 @@ public class GenericStack_TestApplication {
                 case 4:
                     if (stack.isEmpty()) {
                         System.out.println("The Stack is Empty");
-                    }
-                    else {
+                    } else {
                         System.out.println("The Stack is not Empty");
                     }
                     break;
@@ -55,8 +48,7 @@ public class GenericStack_TestApplication {
                 case 5:
                     if (stack.isFull()) {
                         System.out.println("The Stack is Full");
-                    }
-                    else {
+                    } else {
                         System.out.println("The Stack is not Full");
                     }
                     break;
@@ -65,5 +57,6 @@ public class GenericStack_TestApplication {
                     System.out.println("The current size of stack is " + stack.size());
             }
         } while (select != 0);
+        sc.close();
     }
 }

@@ -1,43 +1,46 @@
+
 /**
- * The `GenericStack_Implementation` class is an implementation of the `GenericStack` class.
- * It uses a stack to parse HTML code and check if it is properly nested.
+ * The GenericStack_Implementation class is a simple program that converts an integer
+ * into its binary representation using a generic stack. It takes user input for an
+ * integer, calculates its binary representation, and prints it.
  *
- * This implementation uses a `GenericStack` to store tags. When an opening tag is encountered,
- * it is pushed onto the stack. When a closing tag is encountered, the corresponding opening tag
- * is popped from the stack. If the tags do not match, an error message is printed.
- *
- * @see GenericStack
+ * @author Yash Kadam
+ * @version 1.0
  */
 import java.util.*;
 
 public class GenericStack_Implementation {
+    /**
+     * The main method of the GenericStack_Implementation class.
+     * It takes user input, calculates the binary representation of the input
+     * number,
+     * and prints it in reverse order.
+     *
+     * @param args The command-line arguments (not used in this program).
+     */
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("HTML Code Parser\n" + "Enter the HTML Code:");
-        String code = "<html><head><title>My Title</title></head><body><h1>Heading</h1><p>Paragraph</p></body></html>";
-        GenericStack<String> stack = new GenericStack<>(code.length());
-        for (int i = 0; i < code.length(); i++) {
-            if (code.charAt(i) == '<') {
-                int j = code.indexOf('>', i);
-                if (j != -1) {
-                    String tag = code.substring(i + 1, j);
-                    if (!tag.startsWith("/")) {
-                        stack.push(tag);
-                    } else {
-                        String openTag = stack.pop();
-                        if (!tag.substring(1).equals(openTag)) {
-                            System.out.println("Error: " + openTag);
-                            break;
-                        }
-                    }
-                    i = j;
-                }
-            }
+        // Create a GenericStack instance for storing binary digits
+        GenericStack<Integer> stack = new GenericStack<>(32);
+
+        // Create a Scanner for user input
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int a = input.nextInt();
+
+        // Calculate and push binary digits onto the stack
+        while (a != 0) {
+            int temp = a % 2;
+            stack.push(temp);
+            a /= 2;
         }
-        if (stack.isEmpty()) {
-            System.out.println("The HTML is properly nested.");
-        } else {
-            System.out.println("Error: " + stack.peek());
+
+        // Pop and print the binary digits in reverse order
+        while (!stack.isEmpty()) {
+            System.out.print(stack.pop());
         }
+        System.out.println();
+
+        // Close the Scanner
+        input.close();
     }
 }
