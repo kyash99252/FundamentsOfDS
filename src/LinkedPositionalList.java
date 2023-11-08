@@ -166,17 +166,17 @@ public class LinkedPositionalList<E> implements PositionalList{
 
     public Position<E> getPosition(E e)
     {
-        Position<E> x1=first();
-        while(x1.getElement()!=e)
+        Position<E> x = first();
+        while(x.getElement()!=e)
         {
-            x1=after( x1 );
+            x = after(x);
         }
-        return x1;
+        return x;
     }
     public void display()
     {
         Node<E> currNode = header.next;
-        System.out.print("Head<- ->");
+        System.out.print("Head <- -> ");
         while(currNode!=trailer)
         {
             System.out.print(currNode.getElement()+"<- ->");
