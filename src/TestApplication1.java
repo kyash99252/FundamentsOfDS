@@ -2,7 +2,7 @@ import java.util.Scanner;
 /**
  * The TestApplication class contains the main method to run the program and interact with the user.
  */
-public class TestApplication
+public class TestApplication1
 {
     /**
      * The main method where the program starts execution.
