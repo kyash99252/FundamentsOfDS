@@ -27,7 +27,8 @@ public class HeapPriorityQueueTest {
                     "3. Remove Minimum Entry\n" +
                     "4. View Size\n" +
                     "5. Display All Entries\n" +
-                    "6. Exit\n" +
+                    "6. Check if Priority Queue is Empty\n" +
+                    "7. Exit\n" +
                     "==============================\n");
 
             // Read user choice
@@ -71,6 +72,14 @@ public class HeapPriorityQueueTest {
                     break;
 
                 case 6:
+                    // Check if Priority Queue is empty
+                    if (priorityQueue.isEmpty()) {
+                        System.out.println("The Priority Queue is Empty");
+                    } else {
+                        System.out.println("The Priority Queue isn't Empty");
+                    }
+
+                case 7:
                     System.out.println("Exiting Program");
                     break;
 
@@ -78,6 +87,6 @@ public class HeapPriorityQueueTest {
                     System.out.println("Invalid choice. Please enter a number between 1 and 6.");
                     break;
             }
-        } while (choice != 6); // Continue the loop until the user selects option 6 to exit
+        } while (choice != 7); // Continue the loop until the user selects option 6 to exit
     }
 }
