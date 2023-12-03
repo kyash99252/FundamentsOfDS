@@ -32,7 +32,7 @@ public class HeapPriorityQueueTest {
                     "==============================\n");
 
             // Read user choice
-            System.out.print("Enter choice:");
+            System.out.print("Enter choice: ");
             choice = sc.nextInt();
 
             switch (choice) {
@@ -78,6 +78,7 @@ public class HeapPriorityQueueTest {
                     } else {
                         System.out.println("The Priority Queue isn't Empty");
                     }
+                    break;
 
                 case 7:
                     System.out.println("Exiting Program");
